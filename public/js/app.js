@@ -5377,6 +5377,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -28399,83 +28431,134 @@ var render = function () {
     ]),
     _vm._v(" "),
     _c(
-      "ul",
-      { staticClass: "list-group my-2" },
+      "div",
       [
         _c(
           "paginate",
           {
             ref: "paginator",
-            attrs: { name: "anuncios", list: _vm.anuncios, per: 3 },
+            attrs: { name: "anuncios", list: _vm.anuncios, per: 20 },
           },
-          _vm._l(_vm.paginated("anuncios"), function (item, index) {
-            return _c(
-              "li",
-              { key: item.id, staticClass: "list-group-item" },
-              [
-                _c("img", {
-                  attrs: { src: "/imagen/" + item.imagen, width: "50%" },
+          [
+            _c("table", { staticClass: "table-fixed w-full" }, [
+              _c("thead", [
+                _c("tr", { staticStyle: { "text-align": "center" } }, [
+                  _c("th", { staticClass: "border px-4 py-2" }, [_vm._v("ID")]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "border px-4 py-2" }, [
+                    _vm._v("Titulo"),
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "border px-4 py-2" }, [
+                    _vm._v("DESCRIPCION"),
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "border px-4 py-2" }, [
+                    _vm._v("NUMERO"),
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "border px-4 py-2" }, [
+                    _vm._v("IMAGEN"),
+                  ]),
+                  _vm._v(" "),
+                  _c("th", { staticClass: "border px-4 py-2" }, [
+                    _vm._v("BOTONES"),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.paginated("anuncios"), function (item, index) {
+                  return _c(
+                    "tr",
+                    { key: item.id, staticStyle: { "text-align": "center" } },
+                    [
+                      _c("td", { staticClass: "border px-14 py-1" }, [
+                        _vm._v(_vm._s(item.id)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-14 py-1" }, [
+                        _vm._v(_vm._s(item.titulo)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-14 py-1" }, [
+                        _vm._v(_vm._s(item.descripcion)),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-14 py-1" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-success btn-sm",
+                            attrs: {
+                              href:
+                                "https://api.whatsapp.com/send?phone=" +
+                                item.numero,
+                            },
+                          },
+                          [_vm._v(_vm._s(item.numero) + " ")]
+                        ),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-14 py-1" }, [
+                        _c("img", {
+                          attrs: {
+                            src: "/imagen/" + item.imagen,
+                            width: "40%",
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "border px-4 py-2" }, [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "flex justify-center rounded-lg text-lg",
+                            attrs: { role: "group" },
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger btn-sm",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.eliminarAnuncio(item, index)
+                                  },
+                                },
+                              },
+                              [_vm._v("Eliminar")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-info",
+                                attrs: { href: "anuncio/" + item.id },
+                              },
+                              [_vm._v("Show")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-info",
+                                attrs: { href: "anuncio/" + item.id + "/edit" },
+                              },
+                              [_vm._v("Editar")]
+                            ),
+                          ]
+                        ),
+                      ]),
+                    ]
+                  )
                 }),
-                _vm._v(" "),
-                _c("h1", [_vm._v(_vm._s(item.titulo))]),
-                _vm._v(" "),
-                _c("p", [_vm._v(_vm._s(item.descripcion))]),
-                _vm._v(" "),
-                _c("h3", [_vm._v("CATEGORIAS")]),
-                _vm._v(" "),
-                _vm._l(item.categorias, function (a, i) {
-                  return _c("div", { key: i }, [_vm._v(_vm._s(a.nombre))])
-                }),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-success btn-sm",
-                    attrs: {
-                      href:
-                        "https://api.whatsapp.com/send?phone=" + item.numero,
-                    },
-                  },
-                  [_vm._v(_vm._s(item.numero) + " ")]
-                ),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger btn-sm",
-                    on: {
-                      click: function ($event) {
-                        return _vm.eliminarAnuncio(item, index)
-                      },
-                    },
-                  },
-                  [_vm._v("Eliminar")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-info",
-                    attrs: { href: "anuncio/" + item.id },
-                  },
-                  [_vm._v("Show")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-info",
-                    attrs: { href: "anuncio/" + item.id + "/edit" },
-                  },
-                  [_vm._v("Editar")]
-                ),
-              ],
-              2
-            )
-          }),
-          0
+                0
+              ),
+            ]),
+          ]
         ),
       ],
       1

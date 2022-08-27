@@ -25,30 +25,62 @@
                         @keyup="buscarAnuncio"
                         >
         </form>
+        <div>
+                    <paginate ref="paginator" name="anuncios" :list="anuncios" :per="20">
+
+            <table class="table-fixed w-full">
+                
+                <thead>
+                    <tr style="text-align: center;" >
+                        <th class="border px-4 py-2">ID</th>
+                        <th class="border px-4 py-2">Titulo</th>
+                        <th class="border px-4 py-2">DESCRIPCION</th>
+                        <th class="border px-4 py-2">NUMERO</th>
+                        <th class="border px-4 py-2">IMAGEN</th>
+                        <th class="border px-4 py-2">BOTONES</th>
+                    </tr>  
+                </thead>    
+                <tbody>
+                    <tr style="text-align: center;" v-for="(item,index) in paginated('anuncios')" :key="item.id">
+                        <td  class="border px-14 py-1">{{item.id}}</td>
+                        <td  class="border px-14 py-1">{{item.titulo}}</td>
+                        <td  class="border px-14 py-1">{{item.descripcion}}</td>
+                        <td class="border px-14 py-1"> 
+                        <a class="btn btn-success btn-sm" :href="'https://api.whatsapp.com/send?phone='+ item.numero">{{item.numero}} </a>
+                        </td>
+                        <td  class="border px-14 py-1">
+                            <img :src="'/imagen/'+item.imagen" width="40%">
+                        </td>                        
+                        <td class="border px-4 py-2">
+                            <div class="flex justify-center rounded-lg text-lg" role="group">
+                                <button class="btn btn-danger btn-sm" @click="eliminarAnuncio(item,index)">Eliminar</button>
+            <a class="btn btn-info" :href= "'anuncio/'+item.id">Show</a>
+
+            <a class="btn btn-info" :href= "'anuncio/'+item.id+'/edit'">Editar</a> 
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </tbody>  
+            </table>
+                    </paginate>
+
+        </div>     
+<!--
     <ul class="list-group my-2">
-        <paginate ref="paginator" name="anuncios" :list="anuncios" :per="20">
         <li class="list-group-item" v-for="(item,index) in paginated('anuncios')" :key="item.id">
             <img :src="'/imagen/'+item.imagen" width="50%">
             <h1>{{item.titulo}}</h1>
             <p>{{item.descripcion}}</p>
             <h3>CATEGORIAS</h3>
             <div v-for="(a, i) in item.categorias" :key="i">{{a.nombre}}</div>
-            
             <a class="btn btn-success btn-sm" :href="'https://api.whatsapp.com/send?phone='+ item.numero">{{item.numero}} </a>
             <hr>
-
             <button class="btn btn-danger btn-sm" @click="eliminarAnuncio(item,index)">Eliminar</button>
             <a class="btn btn-info" :href= "'anuncio/'+item.id">Show</a>
-
             <a class="btn btn-info" :href= "'anuncio/'+item.id+'/edit'">Editar</a> 
-                    
-            <!--<li class="list-group-item" v-for="cat in anuncios[0].categorias" :key="anuncio.id">
-            <p>{{cat.nombre}}</p>
-            </li>--> 
-            
         </li>
-        </paginate>
-    </ul>
+    </ul>-->
     <div>
             <paginate-links :classes="{ul: 'pagination',li: 'page-item',a:'page-link'}" for="anuncios" show-step-links="true" :async="true"></paginate-links>
 
