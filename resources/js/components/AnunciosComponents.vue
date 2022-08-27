@@ -31,13 +31,8 @@
             <img :src="'/imagen/'+item.imagen" width="50%">
             <h1>{{item.titulo}}</h1>
             <p>{{item.descripcion}}</p>
-            <div v-if="item.categorias">
-                No Tiene Categorias
-            </div>
-            <div v-else>
-                Categorias
-                <div v-for="(a, i) in item.categorias" :key="i">{{a.nombre}}</div>
-            </div>
+            <h3>CATEGORIAS</h3>
+            <div v-for="(a, i) in item.categorias" :key="i">{{a.nombre}}</div>
             
             <a class="btn btn-success btn-sm" :href="'https://api.whatsapp.com/send?phone='+ item.numero">{{item.numero}} </a>
             <hr>
